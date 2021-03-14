@@ -12,7 +12,7 @@ class WelcomeMessageView(APIView):
         sentence = "You are welcome"
 
         data = {
-            #In this case language will be dectected from 'Accepted-Language' of  request.headers with the help of 'django.middleware.locale.LocaleMiddleware'
+            #In this case language will be dectected from 'Accept-Language' of  request.headers with the help of 'django.middleware.locale.LocaleMiddleware'
             "message": _(sentence)
         }
 
@@ -20,6 +20,6 @@ class WelcomeMessageView(APIView):
 
 
 class QuestionListView(generics.ListAPIView):
-    #In this case language will be dectected from 'Accepted-Language' of  request.headers with the help of 'django.middleware.locale.LocaleMiddleware'
+    #In this case language will be dectected from 'Accept-Language' of  request.headers with the help of 'django.middleware.locale.LocaleMiddleware'
     queryset = Question.objects.all()
     serializer_class = QuestionSerializer
